@@ -6,8 +6,9 @@ function getComputerChoice(){
 }
 
 // compute the winner of a match 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection){
     playerSelection = playerSelection.toLowerCase();
+    let computerSelection = getComputerChoice();
     if (playerSelection === computerSelection){
         return 'You Tie!';
     }
@@ -44,8 +45,8 @@ function game(){
     let computer_wins = 0;
     for (let x = 0; x < num_games; x++){
         let playerSelection = prompt('Enter a choice: ');
-        let computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection);
+        
+        let result = playRound(playerSelection);
         if(result.charAt(4) === 'W'){
             player_wins++;
         }
@@ -65,4 +66,16 @@ function game(){
     }
 }
 
-game();
+const rockButton = document.getElementById('rock');
+const paperButton = document.getElementById('paper');
+const scissorsButton = document.getElementById('scissors');
+
+rockButton.addEventListener('click', () =>{
+    alert(playRound('rock'));
+});
+paperButton.addEventListener('click', () =>{
+    alert(playRound('paper'));
+});
+scissorsButton.addEventListener('click', () =>{
+    alert(playRound('scissors'));
+});
