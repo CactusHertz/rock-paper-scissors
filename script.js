@@ -7,33 +7,33 @@ function getComputerChoice(){
 
 // compute the winner of a match 
 function playRound(playerSelection){
-    playerSelection = playerSelection.toLowerCase();
+    const result = document.querySelector('div');
     let computerSelection = getComputerChoice();
     if (playerSelection === computerSelection){
-        return 'You Tie!';
+        result.textContent = 'You Tie!';
     }
     else if (playerSelection === 'rock'){
         if (computerSelection === 'paper'){
-            return 'You Lose! ' + computerSelection  + ' beats ' + playerSelection;
+            result.textContent =  'You Lose! ' + computerSelection  + ' beats ' + playerSelection;
         }
         if (computerSelection === 'scissors'){
-            return 'You Win! ' + playerSelection  + ' beats ' + computerSelection;
+            result.textContent =  'You Win! ' + playerSelection  + ' beats ' + computerSelection;
         }
     }
     else if (playerSelection === 'paper'){
         if (computerSelection === 'rock'){
-            return 'You Win! ' + playerSelection  + ' beats ' + computerSelection;
+            result.textContent =  'You Win! ' + playerSelection  + ' beats ' + computerSelection;
         }
         if (computerSelection === 'scissors'){
-            return 'You Lose! ' + computerSelection  + ' beats ' + playerSelection;
+            result.textContent =  'You Lose! ' + computerSelection  + ' beats ' + playerSelection;
         }
     }
     else if (playerSelection === 'scissors'){
         if (computerSelection === 'rock'){
-            return 'You Lose! ' + computerSelection  + ' beats ' + playerSelection;
+            result.textContent =  'You Lose! ' + computerSelection  + ' beats ' + playerSelection;
         }
         if (computerSelection === 'paper'){
-            return 'You Win! ' + playerSelection  + ' beats ' + computerSelection;
+            result.textContent =  'You Win! ' + playerSelection  + ' beats ' + computerSelection;
         }
     }
 }
@@ -71,11 +71,11 @@ const paperButton = document.getElementById('paper');
 const scissorsButton = document.getElementById('scissors');
 
 rockButton.addEventListener('click', () =>{
-    alert(playRound('rock'));
+    playRound('rock');
 });
 paperButton.addEventListener('click', () =>{
-    alert(playRound('paper'));
+    playRound('paper');
 });
 scissorsButton.addEventListener('click', () =>{
-    alert(playRound('scissors'));
+    playRound('scissors');
 });
